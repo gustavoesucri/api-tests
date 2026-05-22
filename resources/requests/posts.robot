@@ -23,14 +23,15 @@ Buscar post por ID
     Should Be Equal As Integers     ${BODY}[id]    1
 
 Criar post no placeholder
+    [Arguments]        ${TITLE}    ${BODY}    ${ID_USER}    
 
     &{HEADERS}        Create Dictionary
     ...               Content-type=application/json
 
     ${BODY}           Format String    ${EXECDIR}/files/posts.json
-    ...               title_aqui=Título do Livro Ausente
-    ...               body_aqui=Qualquer conteúdo do livro
-    ...               user_aqui=10
+    ...               title_aqui=${TITLE}
+    ...               body_aqui=${BODY}
+    ...               user_aqui=${ID_USER}
 
     ${RESPONSE_POST}        POST
     ...                     url=${URL_PLACEHOLDER}/posts

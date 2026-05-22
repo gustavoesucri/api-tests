@@ -11,4 +11,7 @@ Buscar Lista de posts
 
 Criar posts no site do placeholder
     [Tags]    Criar_Posts
-    Criar post no placeholder
+    Criar post no placeholder    
+    ...    Título do livro     
+    ...    Corpo do livro    
+    ...    10
