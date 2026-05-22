@@ -18,4 +18,5 @@ Criar posts no site do placeholder
 
 Alteracao em posts no site do placeholder
     [Tags]    Editar_Posts
-    Fazer uma alteracao em posts     Título Editado    Corpo Editado    1
+    Fazer uma alteracao em posts    Título do livro    Corpo Editado    1
+    Fazer uma alteracao em posts com menos argumentos    Corpo put    2

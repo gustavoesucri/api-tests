@@ -42,13 +42,32 @@ Criar post no placeholder
     Log    ${RESPONSE_POST.json()}
 
 Fazer uma alteracao em posts
-    [Arguments]        ${TITLE}=""    ${BODY_CONTEUDO}=""    ${ID_USER}=""   
+    [Arguments]        ${TITLE}=""    ${BODY2}=""    ${ID_USER}=""   
+
+    &{HEADERS}        Create Dictionary
+    ...               Content-type=application/json
+
+    ${BODY}           Format String    ${EXECDIR}/files/posts.json
+    ...               title_aqui=${TITLE}
+    ...               body_aqui=${BODY2}
+    ...               user_aqui=${ID_USER}
+
+    ${RESPONSE_PUT}        PUT
+    ...                     url=${URL_PLACEHOLDER}/posts/${ID_USER}
+    ...                     headers=${HEADERS}
+    ...                     data=${BODY}
+    ...                     expected_status=200
+
+    Log    ${RESPONSE_PUT.json()}
+
+Fazer uma alteracao em posts com menos argumentos
+    [Arguments]            ${BODY_CONTEUDO}=""    ${ID_USER}=""   
 
     &{HEADERS}        Create Dictionary
     ...               Content-type=application/json
 
     ${BODY}           Format String    ${EXECDIR}/files/put.json
-    ...               title_aqui=${TITLE}
+    #...               title_aqui=${TITLE}
     ...               body_aqui=${BODY_CONTEUDO}
     ...               user_aqui=${ID_USER}
 
