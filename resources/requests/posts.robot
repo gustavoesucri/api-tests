@@ -40,3 +40,22 @@ Criar post no placeholder
     ...                     expected_status=201
 
     Log    ${RESPONSE_POST.json()}
+
+Fazer uma alteracao em posts
+    [Arguments]        ${TITLE}=""    ${BODY_CONTEUDO}=""    ${ID_USER}=""   
+
+    &{HEADERS}        Create Dictionary
+    ...               Content-type=application/json
+
+    ${BODY}           Format String    ${EXECDIR}/files/put.json
+    ...               title_aqui=${TITLE}
+    ...               body_aqui=${BODY_CONTEUDO}
+    ...               user_aqui=${ID_USER}
+
+    ${RESPONSE_PUT}        PUT
+    ...                     url=${URL_PLACEHOLDER}/posts/${ID_USER}
+    ...                     headers=${HEADERS}
+    ...                     data=${BODY}
+    ...                     expected_status=200
+
+    Log    ${RESPONSE_PUT.json()}

@@ -15,3 +15,7 @@ Criar posts no site do placeholder
     ...    Título do livro     
     ...    Corpo do livro    
     ...    10
+
+Alteracao em posts no site do placeholder
+    [Tags]    Editar_Posts
+    Fazer uma alteracao em posts     Título Editado    Corpo Editado    1
