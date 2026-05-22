@@ -6,3 +6,4 @@ Resource    requests/posts.robot
 Resource    rotas.robot
 
 Library     RequestsLibrary
+Library     String
